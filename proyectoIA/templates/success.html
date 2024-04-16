@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(to bottom, #DABEA8 , #F0E5DC); /* Fondo degradado */
+        }
+
+        .container {
+            margin: 50px auto; /* Espacio superior e inferior */
+            padding: 20px;
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px; /* Ancho máximo del contenedor */
+            margin-left: auto; /* Centrar horizontalmente */
+            margin-right: auto; /* Centrar horizontalmente */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-text {
+            font-size: 36px;
+            color: #B58963;
+            margin-bottom: 10px;
+        }
+
+        .result-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            max-height: 300px; /* Tamaño máximo de la imagen */
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .info-table th,
+        .info-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .info-table th {
+            background-color: #F0E5DC;
+            font-weight: bold;
+            color: #B58963;
+        }
+
+        .info-table td {
+            background-color: #FFF;
+        }
+
+        .btn-back {
+            display: block;
+            width: 100px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #B58963;
+            color: #FFF;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-back:hover {
+            background-color: #8D6E63;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="header-text">Imagen cargada</h1>
+            <img class="result-img" src="{{url_for('static', filename='images/' + img)}}" alt="Imagen cargada">
+        </div>
+
+        <table class="info-table">
+            <tr>
+                <th>Tipo de Roca</th>
+                <td>{{ predictions.class1 }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ color }}</td>
+            </tr>
+            <tr>
+                <th>Tamaño de Grano</th>
+                <td>{{ tamaño }}</td>
+            </tr>
+            <tr>
+                <th>Empaque</th>
+                <td>{{ empaque }}</td>
+            </tr>
+            <tr>
+                <th>Forma de Grano</th>
+                <td>{{ forma }}</td>
+            </tr>
+            <tr>
+                <th>Porosidad</th>
+                <td>{{ porosity }}</td>
+            </tr>
+            <tr>
+                <th>Permeabilidad</th>
+                <td>{{ permeability }}</td>
+            </tr>
+        </table>
+
+        <a href="tools" class="btn-back">Volver</a>
+    </div>
+</body>
+</html>
